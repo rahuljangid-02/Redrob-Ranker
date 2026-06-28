@@ -1,0 +1,145 @@
+# Redrob Hackathon -- Submission Metadata
+
+# ============================================================================
+# Team identity
+# ============================================================================
+team_name: "SRJ Prime"
+
+primary_contact:
+  name: "Sakshi Shekhawat"
+  email: "shekhawatsakshi30@gmail.com"
+  phone: "+91-8955521369"
+
+team_members:
+  - name: "Sakshi Shekhawat"
+    email: "shekhawatsakshi30@gmail.com"
+    role: "Data Analyst"
+  - name: "Rahul Jangid"
+    email: "rahuljangid6211@gmail.com"
+    role: "ML Engineer"
+
+# ============================================================================
+# Code and reproducibility
+# ============================================================================
+github_repo: "https://github.com/3003sakshi/redrob-ranker"
+
+
+sandbox_link: "https://huggingface.co/spaces/YOUR_USERNAME/redrob-ranker"  # Replace with your actual hosted link
+
+
+reproduce_command: "python rank.py --candidates ./candidates.jsonl --job-desc ./job_description.txt --out ./team_SRJ_Prime.csv"
+
+# ============================================================================
+# Compute environment
+# ============================================================================
+compute:
+  platform: "Windows 11, Intel CPU"
+  cpu_cores: 8
+  ram_gb: 16
+  python_version: "3.11"
+  os: "Windows 11"
+  uses_gpu_for_inference: false
+  has_network_during_ranking: false
+  pre_computation_required: true
+  pre_computation_description: "Embedding cache built on first run using all-MiniLM-L6-v2 for 100K candidates. Saved to cache/embedding_cache.pkl. Subsequent runs load cache instantly."
+  pre_computation_time_minutes: 480
+  ranking_step_time_seconds: "~240"
+
+# ============================================================================
+# AI tools declaration
+# ============================================================================
+ai_tools_used:
+  - "ChatGPT (OpenAI)"
+  - "Gemini (Google)"
+  - "GitHub Copilot"
+  - "Claude (Anthropic)"
+
+ai_usage_summary: |
+   ai_usage_summary: |
+   ChatGPT (OpenAI) was used for architecture discussion and debugging.
+   Gemini (Google) was used for idea validation and comparing possible ranking approaches.
+   GitHub Copilot was used for autocomplete during development.
+   Claude (Anthropic) was used for code review, presentation artifacts.
+   No candidate profile data was fed to any external LLM or API during development or ranking.
+   All engineering decisions -- weight choices (alpha/beta/gamma), JD multiplier design,
+   penalty thresholds, and cross-encoder blend ratio -- were made by the team and can be
+   fully defended at the Stage 5 interview.
+# ============================================================================
+# Approach summary
+# ============================================================================
+methodology_summary: |
+  JD-aware hybrid retrieval pipeline combining:
+  (1) Dense semantic embeddings via all-MiniLM-L6-v2 (alpha=0.50)
+  (2) BM25 lexical matching with production retrieval skills weighted 4x (beta=0.20)
+  (3) Behavioral signal bonus: career stability, recruiter response rate, education tier (gamma=0.30)
+  (4) JD-specific penalty/boost multiplier (0.40x to 1.20x) derived directly from JD disqualifier
+      text -- junior titles x0.50, research-only x0.65, CV/Speech x0.60, low response rate x0.55
+  (5) Cross-encoder re-ranking (ms-marco-MiniLM-L-6-v2) of top-100, blended 40/60 with hybrid score.
+  Ranking runtime ~4 minutes on 100K candidates (CPU only, no GPU, no network).
+
+# ============================================================================
+# Model details
+# ============================================================================
+models:
+  embedding:
+    name: "all-MiniLM-L6-v2"
+    source: "sentence-transformers"
+    purpose: "Dense semantic similarity between JD and candidate profiles"
+  reranker:
+    name: "cross-encoder/ms-marco-MiniLM-L-6-v2"
+    source: "sentence-transformers"
+    purpose: "Pair-wise re-ranking of top-100 candidates against JD"
+
+# ============================================================================
+# Scoring weights
+# ============================================================================
+weights:
+  alpha: 0.50
+  beta: 0.20
+  gamma: 0.30
+  final_blend_hybrid: 0.40
+  final_blend_cross_encoder: 0.60
+  top_k_for_reranking: 100
+
+# ============================================================================
+# JD multiplier
+# ============================================================================
+jd_penalties:
+  junior_or_intern_title: "x0.50"
+  research_scientist_or_ai_research_engineer: "x0.65"
+  computer_vision_speech_robotics: "x0.60"
+  response_rate_below_0_25: "x0.55"
+  response_rate_0_25_to_0_35: "x0.70"
+  response_rate_0_35_to_0_45: "x0.85"
+  experience_below_3_5_years: "x0.60"
+  experience_3_5_to_5_years: "x0.82"
+
+jd_boosts:
+  senior_ml_ai_sse_ml_title: "x1.12"
+  experience_5_to_9_years: "x1.08"
+  production_retrieval_skills_4plus: "x1.10"
+  response_rate_above_0_75: "x1.05"
+
+# ============================================================================
+# Results
+# ============================================================================
+results:
+  ranking_runtime_seconds: "~240"
+  candidates_processed: 100000
+  candidates_penalised: 73613
+  candidates_boosted: 19387
+  spec_compliance: "100% -- all validator checks pass"
+  junior_research_in_top_20: 0
+  cv_speech_in_top_20: 0
+  score_spread: 0.5449
+  unique_reasoning_strings: 100
+  output_filename: "team_SRJ_Prime.csv"
+# ============================================================================
+# Declarations
+# ============================================================================
+declarations:
+  read_submission_spec: true
+  code_is_original_work: true
+  no_collusion: true
+  honeypot_check_done: true
+  reproduction_tested: true

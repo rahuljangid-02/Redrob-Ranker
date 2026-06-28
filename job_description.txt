@@ -1,0 +1,44 @@
+Senior AI/ML Engineer - Product & Platform
+
+We are seeking an exceptional AI/ML Engineer to lead the development of intelligent systems that power our platform. You will work on cutting-edge machine learning models, build scalable data pipelines, and design systems that process millions of interactions daily.
+
+Responsibilities:
+- Design and implement machine learning models for ranking, recommendation, and personalization
+- Build scalable data pipelines using distributed computing frameworks (Spark, Airflow)
+- Develop APIs and services that expose ML models in production environments
+- Collaborate with backend engineers on system architecture and database design
+- Conduct A/B experiments and analyze results to optimize model performance
+- Mentor junior engineers and establish best practices for ML development
+
+Required Skills & Experience:
+- 5+ years of professional software engineering or ML engineering experience
+- Deep proficiency in Python, SQL, and distributed computing (Spark, Hadoop)
+- Experience building and deploying machine learning models in production
+- Strong understanding of data structures, algorithms, and system design
+- Experience with modern ML frameworks: TensorFlow, PyTorch, or scikit-learn
+- Familiarity with cloud platforms (AWS, GCP, Azure)
+
+Highly Valued:
+- Experience with Kubernetes, Docker, and containerization
+- Knowledge of NLP, computer vision, or recommendation systems
+- Contributions to open-source projects
+- Experience with data warehousing (Snowflake, BigQuery, Redshift)
+- Background in building real-time streaming data systems
+- Experience with model serving (TensorFlow Serving, KServe, Seldon)
+- AWS/GCP/Azure certifications
+
+Soft Skills:
+- Excellent communication and collaboration abilities
+- Ability to translate business requirements into technical solutions
+- Proactive problem-solving and attention to detail
+- Passion for staying updated with latest ML research and best practices
+
+Education:
+- Bachelor's degree in Computer Science, Mathematics, Statistics, or related field
+- Advanced degree (MS, PhD) a plus but not required
+
+About You:
+- You have shipped ML systems that directly impacted user experience
+- You understand the full lifecycle from data exploration to model deployment
+- You're comfortable working in ambiguous situations and can take ownership of problems
+- You care about code quality, testing, and operational excellence
