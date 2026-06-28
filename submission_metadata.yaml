@@ -21,10 +21,10 @@ team_members:
 # ============================================================================
 # Code and reproducibility
 # ============================================================================
-github_repo: "https://github.com/3003sakshi/redrob-ranker"
+github_repo: "https://github.com/rahuljangid-02/Redrob-Ranker"
 
 
-sandbox_link: "https://huggingface.co/spaces/YOUR_USERNAME/redrob-ranker"  # Replace with your actual hosted link
+sandbox_link: "https://colab.research.google.com/drive/1ubuLIOoXKX6B0Oe_t8Nm3vax58E8SeBq?usp=sharing"  
 
 
 reproduce_command: "python rank.py --candidates ./candidates.jsonl --job-desc ./job_description.txt --out ./team_SRJ_Prime.csv"
