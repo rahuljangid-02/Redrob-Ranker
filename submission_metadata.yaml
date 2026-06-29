@@ -24,7 +24,7 @@ team_members:
 github_repo: "https://github.com/rahuljangid-02/Redrob-Ranker"
 
 
-sandbox_link: "https://colab.research.google.com/drive/1ubuLIOoXKX6B0Oe_t8Nm3vax58E8SeBq?usp=sharing"  
+sandbox_link: "https://colab.research.google.com/drive/1HxE0s-GdIr5uUsVGzlI4YeeI7Ds4NJbA?usp=sharing"  
 
 
 reproduce_command: "python rank.py --candidates ./candidates.jsonl --job-desc ./job_description.txt --out ./team_SRJ_Prime.csv"
